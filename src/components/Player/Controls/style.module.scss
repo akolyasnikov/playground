@@ -1,0 +1,33 @@
+@import '../../../mixin';
+
+.wrap {
+  padding: units(4) units(8);
+}
+
+.player-button {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@include phone {
+  .player-button {
+    margin: units(0) units(2);
+  }
+}
+
+@include tablet {
+  .player-button {
+    margin: units(0) units(4);
+  }
+}
+
+@include desktop {
+  .player-button {
+    margin: units(0) units(6);
+  }
+}

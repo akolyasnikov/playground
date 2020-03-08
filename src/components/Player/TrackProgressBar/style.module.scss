@@ -1,0 +1,26 @@
+@import '../../../colors';
+@import '../../../mixin';
+
+.wrap, .progress {
+  height: units(2);
+  cursor: pointer;
+}
+
+.wrap {
+  background-color: $light;
+  width: 100%;
+  position: relative;
+}
+
+.progress {
+  background-color: $lighter;
+}
+
+.pointer {
+  position: absolute;
+  width: units(2);
+  height: units(2);
+  border-radius: 50%;
+  background-color: $dark;
+  left: 0;
+}

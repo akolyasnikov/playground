@@ -1,0 +1,40 @@
+@import '../../colors';
+@import '../../mixin';
+
+.wrap, .track-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrap {
+  padding: units(2) units(8);
+}
+
+.track-info {
+  height: units(18);
+  width: 100%;
+}
+
+.track-name {
+  color: $dark;
+  padding-bottom: units(4);
+}
+
+@include phone {
+  .track-name {
+    font-size: units(8);
+  }
+}
+
+@include tablet {
+  .track-name {
+    font-size: units(10);
+  }
+}
+
+@include desktop {
+  .track-name {
+    font-size: units(10);
+  }
+}

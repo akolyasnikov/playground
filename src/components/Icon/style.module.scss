@@ -1,0 +1,26 @@
+@import '../../mixin';
+
+.icon:active {
+  opacity: .5;
+}
+
+@include phone {
+  .icon {
+    width: units(7);
+    height: units(7);
+  }
+}
+
+@include tablet {
+  .icon {
+    width: units(8);
+    height: units(8);
+  }
+}
+
+@include desktop {
+  .icon {
+    width: units(9);
+    height: units(9);
+  }
+}
