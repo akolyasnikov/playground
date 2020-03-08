@@ -7,13 +7,14 @@
 }
 
 .wrap {
-  background-color: $light;
+  background-color: $lighter;
   width: 100%;
   position: relative;
 }
 
 .progress {
-  background-color: $lighter;
+  background-color: $light;
+  width: 0;
 }
 
 .pointer {

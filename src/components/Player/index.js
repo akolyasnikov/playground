@@ -84,10 +84,12 @@ class Player extends React.PureComponent {
   }
 
   render() {
+    const track = this.props.playlist[this.state.currentTrackIndex];
+
     return <div className={style.wrap}>
       <div className={style['track-info']}>
         <div className={style['track-name']}>
-          {this.props.playlist[this.state.currentTrackIndex]}
+          {track.name}
         </div>
         <TrackProgressBar
           currentTime={this.state.currentTime}
@@ -97,7 +99,7 @@ class Player extends React.PureComponent {
       </div>
       <Audio
         ref={this.audioElRef}
-        src={`${this.props.tracksFolder}/${this.props.playlist[this.state.currentTrackIndex]}.mp3`} />
+        src={track.path} />
       <Controls
         onTogglePlay={this.togglePlay}
         onPlayNext={this.playNext}

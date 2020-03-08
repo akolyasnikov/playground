@@ -1,5 +1,5 @@
 import React from 'react';
-import Player from './components/Player';
+import Footer from './components/Footer';
 import style from './style.module.scss';
 
 const TRACKS_FOLDER = '/tracks';
@@ -11,9 +11,11 @@ const TRACKS = [
 
 function App () {
   return <div>
-    <Player
-      playlist={TRACKS}
-      tracksFolder={TRACKS_FOLDER}
+    <div className={style.content}>
+      content
+    </div>
+    <Footer
+      playlist={TRACKS.map(name => ({ name: name, path: `${TRACKS_FOLDER}/${name}.mp3` }))}
     />
   </div>;
 }
