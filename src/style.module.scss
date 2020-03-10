@@ -1,8 +1,10 @@
 @import './mixin';
+@import './colors';
 
 body {
   margin: 0;
   min-width: $phone-width;
+  background-color: $siteBackground;
 }
 
 code {

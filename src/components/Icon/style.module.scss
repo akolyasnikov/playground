@@ -6,21 +6,21 @@
 
 @include phone {
   .icon {
-    width: units(7);
-    height: units(7);
-  }
-}
-
-@include tablet {
-  .icon {
     width: units(8);
     height: units(8);
   }
 }
 
-@include desktop {
+@include tablet {
   .icon {
     width: units(9);
     height: units(9);
+  }
+}
+
+@include desktop {
+  .icon {
+    width: units(12);
+    height: units(12);
   }
 }

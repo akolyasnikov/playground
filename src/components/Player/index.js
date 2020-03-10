@@ -41,7 +41,9 @@ class Player extends React.PureComponent {
 
     muted ? audioEl.play() : audioEl.pause();
 
-    this.setState({muted: !this.state.muted});
+    this.setState({muted: !muted});
+
+    this.props.onTogglePlay(!muted);
   }
 
   onCurrentTrackUpdated() {
@@ -86,27 +88,35 @@ class Player extends React.PureComponent {
   render() {
     const track = this.props.playlist[this.state.currentTrackIndex];
 
-    return <div className={style.wrap}>
-      <div className={style['track-info']}>
-        <div className={style['track-name']}>
-          {track.name}
-        </div>
-        <TrackProgressBar
-          currentTime={this.state.currentTime}
-          duration={this.state.duration}
-          onProgressChange={this.onProgressChange}
-        />
-      </div>
-      <Audio
-        ref={this.audioElRef}
-        src={track.path} />
+    return <div className={`${style.wrap} ${this.state.muted ? style.muted : ''}` }>
       <Controls
         onTogglePlay={this.togglePlay}
         onPlayNext={this.playNext}
         onPlayPrev={this.playPrev}
         muted={this.state.muted}
       />
+      <div className={style['track-info']}>
+        <div className={style['track-name']}>
+          {track.name}
+        </div>
+        <div className={style['progress-wrap']}>
+          <TrackProgressBar
+            currentTime={this.state.currentTime}
+            duration={this.state.duration}
+            onProgressChange={this.onProgressChange}
+            showPointer={!this.state.muted}
+          />
+        </div>
+      </div>
+      <Audio
+        ref={this.audioElRef}
+        src={track.path}
+      />
     </div>;
+  }
+
+  componentDidUpdate(prevProps) {
+    this.props.autoplay && this.props.autoplay !== prevProps.autoplay && this.togglePlay();
   }
 
   componentWillUnmount() {

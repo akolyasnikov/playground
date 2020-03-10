@@ -1,0 +1,99 @@
+@import '../../colors';
+@import '../../mixin';
+
+$toggleButtonSide: 25;
+$panelHeight: 25;
+$tallPanelHeightDiff: 17;
+$transitonDuration: 0.5s;
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: units($panelHeight);
+  transition: height $transitonDuration;
+
+  &.tall {
+    height: units($panelHeight + $tallPanelHeightDiff);
+  }
+}
+
+.panel-wrap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border-bottom: $tallPanelHeightDiff solid white;
+  opacity: 1;
+  transition: opacity $transitonDuration;
+
+  &.panel-hidden {
+    opacity: 0;
+  }
+}
+
+.player-wrap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 1;
+  transition: opacity $transitonDuration;
+
+  &.player-hidden {
+    opacity: 0;
+  }
+}
+
+.menu-block {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.toggle-player {
+  border: 0;
+  padding: 0;
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  width: units($toggleButtonSide);
+  height: units($toggleButtonSide);
+  top: -10px;
+  border-radius: units($toggleButtonSide / 2);
+  display: flex;
+  justify-content: center;
+  background-color: $buttonActive;
+  fill: white;
+  outline: none;
+
+  .discover-icon {
+    width: units(14);
+    height: units(14);
+
+    &:active {
+      opacity: 1;
+    }
+  }
+}
+
+
+@include phone {
+  .menu-icon {
+    width: units(12);
+    height: units(12);
+  }
+}
+
+@include tablet {
+  .menu-icon {
+    width: units(13);
+    height: units(13);
+  }
+}
+
+@include desktop {
+  .menu-icon {
+    width: units(14);
+    height: units(14);
+  }
+}

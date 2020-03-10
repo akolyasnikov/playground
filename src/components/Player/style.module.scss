@@ -7,34 +7,41 @@
   align-items: center;
 }
 
-.wrap {
-  padding: units(2) units(8);
-}
-
 .track-info {
   height: units(18);
   width: 100%;
+  background-color: $contentBackground;
 }
 
 .track-name {
   color: $dark;
-  padding-bottom: units(4);
 }
 
 @include phone {
   .track-name {
-    font-size: units(8);
+    font-size: units(7);
   }
 }
 
 @include tablet {
   .track-name {
-    font-size: units(10);
+    font-size: units(8);
   }
 }
 
 @include desktop {
   .track-name {
-    font-size: units(10);
+    font-size: units(8);
+  }
+}
+
+.progress-wrap {
+  width: 90%;
+  transition: width 1s;
+}
+
+.muted {
+  .progress-wrap {
+    width: 200px;
   }
 }

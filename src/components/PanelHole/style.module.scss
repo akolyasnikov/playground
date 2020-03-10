@@ -1,0 +1,32 @@
+@import '../../mixin';
+@import '../../colors';
+
+$holeHeight: 25 ;
+$holeWidth: units(80);
+
+.wrap {
+  display: flex;
+  width: 100%;
+}
+
+.left, .right {
+  height: units($holeHeight);
+  width: 100%;
+  position: relative;
+  background-color: $contentBackground;
+}
+
+.center {
+  min-width: $holeWidth;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hole-wrap {
+  height: units($holeHeight);
+  width: $holeWidth;
+  overflow: hidden;
+  position: absolute;
+}

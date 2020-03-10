@@ -3,7 +3,8 @@
 
 .wrap, .progress {
   height: units(2);
-  cursor: pointer;
+  border-radius: units(1);
+
 }
 
 .wrap {
@@ -24,4 +25,10 @@
   border-radius: 50%;
   background-color: $dark;
   left: 0;
+}
+
+@include desktop {
+  .wrap, .progress {
+    cursor: pointer;
+  }
 }

@@ -1,33 +1,51 @@
 @import '../../../mixin';
+@import '../../../colors';
+
+$holeHeight: 30;
+$holeWidth: units(59);
+$buttonSidePadding: units(15);
+$buttonTopPadding: units(8);
+$playButtonSide: 25;
 
 .wrap {
-  padding: units(4) units(8);
+  display: flex;
+  width: 100%;
 }
 
 .player-button {
   border: 0;
   background-color: transparent;
   padding: 0;
+  z-index: 1;
+  position: absolute;
+  fill: $dark;
+  cursor: pointer;
 
   &:focus {
     outline: none;
   }
-}
 
-@include phone {
-  .player-button {
-    margin: units(0) units(2);
+  &.prev, &.next {
+    top: $buttonTopPadding;
   }
-}
 
-@include tablet {
-  .player-button {
-    margin: units(0) units(4);
+  &.prev {
+    right: $buttonSidePadding;
   }
-}
 
-@include desktop {
-  .player-button {
-    margin: units(0) units(6);
+  &.next {
+    left: $buttonSidePadding;
+  }
+
+  &.play {
+    position: relative;
+    width: units($playButtonSide);
+    height: units($playButtonSide);
+    top: -10px;
+    border-radius: units($playButtonSide / 2);
+    display: flex;
+    justify-content: center;
+    background-color: $buttonActive;
+    fill: white;
   }
 }

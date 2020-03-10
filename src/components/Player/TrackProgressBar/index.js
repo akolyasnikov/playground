@@ -29,8 +29,13 @@ export default class TrackProgressBar extends React.PureComponent {
       className={style.wrap}
       onClick={this.changeProgress}
     >
-      <div className={style.pointer} style={{left: `${width}%`}} />
-      <div className={style.progress} style={{width: `${width}%`}} />
+      {
+        this.props.showPointer &&
+          <>
+            <div className={style.pointer} style={{left: `${width}%`}} />
+            <div className={style.progress} style={{width: `${width}%`}} />
+          </>
+      }
     </div>;
   }
 }
